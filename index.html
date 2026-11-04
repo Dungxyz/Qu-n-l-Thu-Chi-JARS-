@@ -600,28 +600,6 @@
       el.classList.remove('flex');
     }
 
-    function saveGasUrl() {
-      const val = document.getElementById('gasUrlInput').value.trim();
-      if (val) {
-        localStorage.setItem('GAS_API_URL', val);
-        closeModal('configModal');
-        fetchDataFromSheet();
-      } else {
-        localStorage.removeItem('GAS_API_URL');
-        closeModal('configModal');
-      }
-    }
-
-    function resetToDemoData() {
-      localStorage.removeItem('GAS_API_URL');
-      localStorage.removeItem('JARS_SAMPLE_DATA');
-      document.getElementById('gasUrlInput').value = '';
-      transactions = [...SAMPLE_DATA];
-      updateSyncBadge('Đang dùng dữ liệu mẫu', 'bg-amber-400');
-      closeModal('configModal');
-      renderApp();
-    }
-
     function updateSyncBadge(text, dotColorClass) {
       document.getElementById('syncStatus').innerHTML = `
         <span class="w-2 h-2 rounded-full ${dotColorClass} inline-block"></span> ${text}
